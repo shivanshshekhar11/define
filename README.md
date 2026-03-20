@@ -133,40 +133,6 @@ app.post('/users', { schema: { body: schemas.createBodyJsonSchema } }, async (re
 - `packages/cli`: orchestration + scaffolding
 - `examples/fastify-drizzle-app`: working reference app
 
-## GitHub Readiness
-
-Repository includes:
-
-- CI workflow: `.github/workflows/ci.yml`
-- Publish workflow: `.github/workflows/publish-npm.yml`
-- Contribution guide: `CONTRIBUTING.md`
-- Code of conduct: `CODE_OF_CONDUCT.md`
-- Security policy: `SECURITY.md`
-- PR template: `.github/PULL_REQUEST_TEMPLATE.md`
-- License: `LICENSE`
-
-## npm Publishing Notes
-
-All publishable workspace packages include:
-
-- `license`
-- `engines`
-- `exports`
-- `publishConfig.access = public`
-- package-level `README.md`
-
-Manual publish example:
-
-```bash
-pnpm --filter @define/core publish --access public
-pnpm --filter @define/adapter-drizzle publish --access public
-pnpm --filter @define/adapter-fastify publish --access public
-pnpm --filter @define/adapter-openapi publish --access public
-pnpm --filter @define/cli publish --access public
-```
-
-Or use the GitHub Actions workflow `Publish npm Packages` with `NPM_TOKEN` configured.
-
 ## Contributing
 
 See `CONTRIBUTING.md` for setup and workflow.
