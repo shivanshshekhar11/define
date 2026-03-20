@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "baseUrl": ".",
+    "paths": {
+      "@define/core": ["../../packages/core/src/index.ts"],
+      "@define/adapter-fastify": ["../../packages/adapter-fastify/src/index.ts"]
+    }
+  },
+  "include": ["src/**/*.ts", ".tool/generated/**/*.ts", "drizzle.config.ts"]
+}

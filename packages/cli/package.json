@@ -1,0 +1,56 @@
+{
+  "name": "@define/cli",
+  "version": "0.1.0",
+  "description": "CLI for scaffolding and generating Define artifacts.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "define",
+    "cli",
+    "drizzle",
+    "fastify",
+    "openapi"
+  ],
+  "bin": {
+    "define": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "init": "node dist/index.js init",
+    "generate": "node dist/index.js generate",
+    "generate:db": "node dist/index.js generate:db",
+    "generate:repos": "node dist/index.js generate:repos",
+    "generate:openapi": "node dist/index.js generate:openapi",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@define/adapter-drizzle": "workspace:*",
+    "@define/adapter-openapi": "workspace:*",
+    "@define/core": "workspace:*",
+    "fast-glob": "^3.3.3",
+    "jiti": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "vitest": "^3.0.7"
+  }
+}

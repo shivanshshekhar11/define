@@ -1,0 +1,24 @@
+{
+  "name": "define",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Define resources once in TypeScript and generate Drizzle schema, repos, Fastify wiring, and OpenAPI.",
+  "license": "MIT",
+  "packageManager": "pnpm@10.8.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "test:types": "pnpm -r test:types",
+    "init": "pnpm --filter @define/cli init",
+    "generate": "pnpm --filter @define/cli generate",
+    "generate:db": "pnpm --filter @define/cli generate:db",
+    "generate:repos": "pnpm --filter @define/cli generate:repos",
+    "generate:openapi": "pnpm --filter @define/cli generate:openapi"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
