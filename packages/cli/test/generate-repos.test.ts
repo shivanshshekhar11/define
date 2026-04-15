@@ -30,7 +30,7 @@ describe('runGenerateRepos', () => {
     await fs.writeFile(
       path.join(resourcesDir, 'user.ts'),
       [
-        "import { datetime, id, resource, string } from '@define/core'",
+        "import { datetime, id, resource, string } from '@define-js/core'",
         '',
         "export const User = resource('User', {",
         "  table: 'users',",
@@ -59,7 +59,8 @@ describe('runGenerateRepos', () => {
     const userTypes = await fs.readFile(path.join(result.outDirPath, 'user.types.ts'), 'utf8')
 
     expect(userRepo).toContain('export const UserRepo = {')
-    expect(userRepo).toContain("import { users } from './drizzle-schema'")
+    expect(userRepo).toContain("import { users } from './drizzle-schema.js'")
+    expect(userRepo).toContain("import { db } from '../../src/db/client.js'")
     expect(userTypes).toContain('export interface UserRow {')
   })
 })

@@ -1,4 +1,4 @@
-import { getResourceMeta, type ResourceDefinition, type ResourceFields } from '@define/core'
+import { getResourceMeta, type ResourceDefinition, type ResourceFields } from '@define-js/core'
 
 export type SerializedResourceRow = Record<string, unknown>
 

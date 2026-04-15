@@ -37,7 +37,7 @@ const DEFAULT_PACKAGE_JSON = (appName: string): string => JSON.stringify({
 }, null, 2) + '\n'
 
 const DEFAULT_RESOURCE = [
-  "import { datetime, id, resource, string } from '@define/core'",
+  "import { datetime, id, resource, string } from '@define-js/core'",
   '',
   "export const User = resource('User', {",
   "  table: 'users',",
@@ -93,7 +93,7 @@ const DEFAULT_DRIZZLE_CONFIG = [
 const DEFAULT_SERVER = [
   "import Fastify from 'fastify'",
   '',
-  "import { registerCRUDRoutes } from '@define/adapter-fastify'",
+  "import { registerCRUDRoutes } from '@define-js/adapter-fastify'",
   '',
   "import { UserRepo } from '../.tool/generated/user.repo.js'",
   "import { User } from './resources/user.js'",

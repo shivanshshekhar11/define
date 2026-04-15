@@ -1,5 +1,5 @@
 {
-  "name": "@define/cli",
+  "name": "@define-js/cli",
   "version": "0.1.0",
   "description": "CLI for scaffolding and generating Define artifacts.",
   "license": "MIT",
@@ -50,9 +50,9 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@define/adapter-drizzle": "workspace:*",
-    "@define/adapter-openapi": "workspace:*",
-    "@define/core": "workspace:*",
+    "@define-js/adapter-drizzle": "workspace:*",
+    "@define-js/adapter-openapi": "workspace:*",
+    "@define-js/core": "workspace:*",
     "fast-glob": "^3.3.3",
     "jiti": "^2.4.2"
   },

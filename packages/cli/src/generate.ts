@@ -1,8 +1,8 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import { generateDrizzleSchema, generateRepositoryArtifacts } from '@define/adapter-drizzle'
-import { generateOpenApiDocument } from '@define/adapter-openapi'
+import { generateDrizzleSchema, generateRepositoryArtifacts } from '@define-js/adapter-drizzle'
+import { generateOpenApiDocument } from '@define-js/adapter-openapi'
 
 import { discoverResourceFiles, loadResourceMetas } from './resource-loader.js'
 import { ensureDirectory, ensureDirectoryForFile } from './utils.js'
@@ -34,7 +34,7 @@ export const runGenerateAll = async (
     patterns: options.resourcePatterns,
   })
 
-  const resources = await loadResourceMetas(resourceFiles)
+  const resources = await loadResourceMetas(resourceFiles, options.cwd)
 
   if (resources.length === 0) {
     throw new Error(

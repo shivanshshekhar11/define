@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { datetime, id, resource, string, type InferInsert, type InferUpdate } from '@define/core'
+import { datetime, id, resource, string, type InferInsert, type InferUpdate } from '@define-js/core'
 
 import { createCRUDMethods } from '../src/index.js'
 

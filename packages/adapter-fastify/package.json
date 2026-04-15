@@ -1,5 +1,5 @@
 {
-  "name": "@define/adapter-fastify",
+  "name": "@define-js/adapter-fastify",
   "version": "0.1.0",
   "description": "Fastify validation, schemas, serializers, and CRUD method helpers for Define.",
   "license": "MIT",
@@ -42,7 +42,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@define/core": "workspace:*",
+    "@define-js/core": "workspace:*",
     "fastify": "^5.2.1"
   },
   "devDependencies": {

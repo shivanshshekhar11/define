@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { datetime, id, resource, string } from '@define/core'
+import { datetime, id, resource, string } from '@define-js/core'
 
 import { createResourceSerializer } from '../src/index.js'
 

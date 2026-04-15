@@ -11,8 +11,8 @@
     "dev": "node src/server.ts"
   },
   "dependencies": {
-    "@define/adapter-fastify": "workspace:*",
-    "@define/core": "workspace:*",
+    "@define-js/adapter-fastify": "workspace:*",
+    "@define-js/core": "workspace:*",
     "fastify": "^5.2.1"
   },
   "devDependencies": {

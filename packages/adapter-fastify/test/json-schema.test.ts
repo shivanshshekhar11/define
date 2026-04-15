@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { boolean, datetime, id, int, resource, string } from '@define/core'
+import { boolean, datetime, id, int, resource, string } from '@define-js/core'
 
 import { generateResourceJsonSchemas } from '../src/index.js'
 

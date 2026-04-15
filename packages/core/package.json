@@ -1,5 +1,5 @@
 {
-  "name": "@define/core",
+  "name": "@define-js/core",
   "version": "0.1.0",
   "description": "Core DSL and metadata model for Define.",
   "license": "MIT",

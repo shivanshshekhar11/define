@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import { generateOpenApiDocument } from '@define/adapter-openapi'
+import { generateOpenApiDocument } from '@define-js/adapter-openapi'
 
 import { discoverResourceFiles, loadResourceMetas } from './resource-loader.js'
 import { ensureDirectoryForFile } from './utils.js'
@@ -27,7 +27,7 @@ export const runGenerateOpenApi = async (
     patterns: options.resourcePatterns,
   })
 
-  const resources = await loadResourceMetas(resourceFiles)
+  const resources = await loadResourceMetas(resourceFiles, options.cwd)
 
   if (resources.length === 0) {
     throw new Error(

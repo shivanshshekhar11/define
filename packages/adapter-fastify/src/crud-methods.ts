@@ -1,4 +1,4 @@
-import { getResourceMeta, type ResourceDefinition, type ResourceFields } from '@define/core'
+import { getResourceMeta, type ResourceDefinition, type ResourceFields } from '@define-js/core'
 
 import { ValidationError } from './errors.js'
 import { generateResourceJsonSchemas, type ResourceJsonSchemas } from './json-schema.js'

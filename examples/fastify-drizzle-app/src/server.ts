@@ -1,6 +1,6 @@
 import Fastify from 'fastify'
 
-import { createCRUDMethods } from '@define/adapter-fastify'
+import { createCRUDMethods } from '@define-js/adapter-fastify'
 
 import { UserRepo } from '../.tool/generated/user.repo.js'
 import { User } from './resources/user.js'

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import type { ResourceMeta } from '@define/core'
+import type { ResourceMeta } from '@define-js/core'
 
 import { generateOpenApiDocument } from '../src/index.js'
 

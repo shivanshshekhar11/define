@@ -1,4 +1,4 @@
-import { getResourceMeta, type ResourceDefinition, type ResourceFields } from '@define/core'
+import { getResourceMeta, type ResourceDefinition, type ResourceFields } from '@define-js/core'
 import type { FastifyInstance } from 'fastify'
 
 import { createCRUDMethods, type CrudRepository } from './crud-methods.js'

@@ -1,5 +1,5 @@
 {
-  "name": "@define/adapter-drizzle",
+  "name": "@define-js/adapter-drizzle",
   "version": "0.1.0",
   "description": "Drizzle schema and repository generator for Define.",
   "license": "MIT",
@@ -42,7 +42,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@define/core": "workspace:*",
+    "@define-js/core": "workspace:*",
     "drizzle-orm": "^0.44.6"
   },
   "devDependencies": {

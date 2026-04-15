@@ -1,4 +1,4 @@
-import type { FieldMeta, ResourceMeta } from '@define/core'
+import type { FieldMeta, ResourceMeta } from '@define-js/core'
 
 import type { GenerateOpenApiDocumentInput, OpenApiDocument } from './types.js'
 

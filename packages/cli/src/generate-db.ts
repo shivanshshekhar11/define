@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import { generateDrizzleSchema } from '@define/adapter-drizzle'
+import { generateDrizzleSchema } from '@define-js/adapter-drizzle'
 
 import { discoverResourceFiles, loadResourceMetas } from './resource-loader.js'
 import { ensureDirectoryForFile } from './utils.js'
@@ -23,7 +23,7 @@ export const runGenerateDb = async (options: GenerateDbOptions): Promise<Generat
     patterns: options.resourcePatterns,
   })
 
-  const resources = await loadResourceMetas(resourceFiles)
+  const resources = await loadResourceMetas(resourceFiles, options.cwd)
 
   if (resources.length === 0) {
     throw new Error(

@@ -14,10 +14,10 @@ importers:
 
   examples/fastify-drizzle-app:
     dependencies:
-      '@define/adapter-fastify':
+      '@define-js/adapter-fastify':
         specifier: workspace:*
         version: link:../../packages/adapter-fastify
-      '@define/core':
+      '@define-js/core':
         specifier: workspace:*
         version: link:../../packages/core
       fastify:
@@ -36,7 +36,7 @@ importers:
 
   packages/adapter-drizzle:
     dependencies:
-      '@define/core':
+      '@define-js/core':
         specifier: workspace:*
         version: link:../core
       drizzle-orm:
@@ -52,7 +52,7 @@ importers:
 
   packages/adapter-fastify:
     dependencies:
-      '@define/core':
+      '@define-js/core':
         specifier: workspace:*
         version: link:../core
       fastify:
@@ -68,7 +68,7 @@ importers:
 
   packages/adapter-openapi:
     dependencies:
-      '@define/core':
+      '@define-js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -81,13 +81,13 @@ importers:
 
   packages/cli:
     dependencies:
-      '@define/adapter-drizzle':
+      '@define-js/adapter-drizzle':
         specifier: workspace:*
         version: link:../adapter-drizzle
-      '@define/adapter-openapi':
+      '@define-js/adapter-openapi':
         specifier: workspace:*
         version: link:../adapter-openapi
-      '@define/core':
+      '@define-js/core':
         specifier: workspace:*
         version: link:../core
       fast-glob:

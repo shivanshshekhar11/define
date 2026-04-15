@@ -30,7 +30,7 @@ describe('runGenerateDb', () => {
     await fs.writeFile(
       path.join(resourcesDir, 'user.ts'),
       [
-        "import { datetime, id, resource, string } from '@define/core'",
+        "import { datetime, id, resource, string } from '@define-js/core'",
         '',
         "export const User = resource('User', {",
         "  table: 'users',",

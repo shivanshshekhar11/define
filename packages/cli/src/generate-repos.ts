@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import { generateRepositoryArtifacts } from '@define/adapter-drizzle'
+import { generateRepositoryArtifacts } from '@define-js/adapter-drizzle'
 
 import { discoverResourceFiles, loadResourceMetas } from './resource-loader.js'
 import { ensureDirectory } from './utils.js'
@@ -28,7 +28,7 @@ export const runGenerateRepos = async (
     patterns: options.resourcePatterns,
   })
 
-  const resources = await loadResourceMetas(resourceFiles)
+  const resources = await loadResourceMetas(resourceFiles, options.cwd)
 
   if (resources.length === 0) {
     throw new Error(

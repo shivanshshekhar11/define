@@ -1,11 +1,11 @@
-# @define/cli
+# @define-js/cli
 
 CLI for scaffolding and generating Define artifacts.
 
 ## Install
 
 ```bash
-pnpm add -D @define/cli
+pnpm add -D @define-js/cli
 ```
 
 ## Commands

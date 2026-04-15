@@ -4,7 +4,7 @@ import {
   type InferUpdate,
   type ResourceDefinition,
   type ResourceFields,
-} from '@define/core'
+} from '@define-js/core'
 
 import { ValidationError } from './errors.js'
 

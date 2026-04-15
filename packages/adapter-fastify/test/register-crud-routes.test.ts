@@ -7,7 +7,7 @@ import {
   string,
   type InferInsert,
   type InferUpdate,
-} from '@define/core'
+} from '@define-js/core'
 import Fastify from 'fastify'
 
 import { registerCRUDRoutes } from '../src/index.js'

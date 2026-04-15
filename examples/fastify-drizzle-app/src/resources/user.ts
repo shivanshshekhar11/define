@@ -5,7 +5,7 @@ import {
   string,
   type ResourceDefinition,
   type ResourceFields,
-} from '@define/core'
+} from '@define-js/core'
 
 export const User: ResourceDefinition<'User', 'users', ResourceFields> = resource('User', {
   table: 'users',

@@ -1,4 +1,4 @@
-import type { ResourceMeta } from '@define/core'
+import type { ResourceMeta } from '@define-js/core'
 
 export interface GenerateDrizzleSchemaInput {
   resources: ResourceMeta[]
