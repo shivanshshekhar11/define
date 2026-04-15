@@ -4,6 +4,7 @@ import path from 'node:path'
 import { generateDrizzleSchema } from '@define/adapter-drizzle'
 
 import { discoverResourceFiles, loadResourceMetas } from './resource-loader.js'
+import { ensureDirectoryForFile } from './utils.js'
 
 export interface GenerateDbOptions {
   cwd: string
@@ -14,11 +15,6 @@ export interface GenerateDbOptions {
 export interface GenerateDbResult {
   resourceCount: number
   outFilePath: string
-}
-
-const ensureDirectory = async (targetFile: string): Promise<void> => {
-  const dir = path.dirname(targetFile)
-  await fs.mkdir(dir, { recursive: true })
 }
 
 export const runGenerateDb = async (options: GenerateDbOptions): Promise<GenerateDbResult> => {
@@ -38,7 +34,7 @@ export const runGenerateDb = async (options: GenerateDbOptions): Promise<Generat
   const { code } = generateDrizzleSchema({ resources })
 
   const outFilePath = path.resolve(options.cwd, options.outFile)
-  await ensureDirectory(outFilePath)
+  await ensureDirectoryForFile(outFilePath)
   await fs.writeFile(outFilePath, `${code}\n`, 'utf8')
 
   return {

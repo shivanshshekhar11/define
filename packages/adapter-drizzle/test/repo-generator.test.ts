@@ -70,7 +70,14 @@ describe('generateRepositoryArtifacts', () => {
     expect(typeFile?.code).toContain('createdAt?: Date')
 
     expect(repoFile?.code).toContain('export const UserRepo = {')
-    expect(repoFile?.code).toContain('findById: async (userId: UserRow[\'id\'])')
-    expect(repoFile?.code).toContain('updateById: async (userId: UserRow[\'id\'], patch: UserUpdate)')
+    expect(repoFile?.code).toContain('findById: async (id: unknown): Promise<UserRow | null>')
+    expect(repoFile?.code).toContain('updateById: async (id: unknown, patch: UserUpdate): Promise<UserRow | null>')
+    expect(repoFile?.code).toContain("from './user.types.js'")
+    expect(repoFile?.code).toContain("from '../../src/db/client.js'")
+    expect(repoFile?.code).toContain("from './drizzle-schema.js'")
+
+    const indexFile = files.find((file) => file.path === 'index.ts')
+    expect(indexFile?.code).toContain("from './user.types.js'")
+    expect(indexFile?.code).toContain("from './user.repo.js'")
   })
 })

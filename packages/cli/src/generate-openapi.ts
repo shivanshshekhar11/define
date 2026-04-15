@@ -4,6 +4,7 @@ import path from 'node:path'
 import { generateOpenApiDocument } from '@define/adapter-openapi'
 
 import { discoverResourceFiles, loadResourceMetas } from './resource-loader.js'
+import { ensureDirectoryForFile } from './utils.js'
 
 export interface GenerateOpenApiOptions {
   cwd: string
@@ -16,11 +17,6 @@ export interface GenerateOpenApiOptions {
 export interface GenerateOpenApiResult {
   resourceCount: number
   outFilePath: string
-}
-
-const ensureDirectory = async (targetFile: string): Promise<void> => {
-  const dir = path.dirname(targetFile)
-  await fs.mkdir(dir, { recursive: true })
 }
 
 export const runGenerateOpenApi = async (
@@ -48,7 +44,7 @@ export const runGenerateOpenApi = async (
   })
 
   const outFilePath = path.resolve(options.cwd, options.outFile)
-  await ensureDirectory(outFilePath)
+  await ensureDirectoryForFile(outFilePath)
   await fs.writeFile(outFilePath, `${JSON.stringify(openapi, null, 2)}\n`, 'utf8')
 
   return {

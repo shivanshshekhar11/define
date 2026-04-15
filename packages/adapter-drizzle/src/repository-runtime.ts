@@ -41,7 +41,7 @@ export const createRepository = <
   type Row = InferSelectModel<TTable>
   type Insert = InferInsertModel<TTable>
   type Update = Partial<Insert>
-  type Primary = InferSelectModel<TTable>[Extract<keyof Row, string>]
+  type Primary = TPrimaryColumn['_']['data']
 
   return {
     insert: async (input: Insert): Promise<Row> => {

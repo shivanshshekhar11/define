@@ -4,6 +4,13 @@
   "version": "0.1.0",
   "description": "Define resources once in TypeScript and generate Drizzle schema, repos, Fastify wiring, and OpenAPI.",
   "license": "MIT",
+  "author": "Define contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shivanshshekhar11/define.git"
+  },
+  "homepage": "https://github.com/shivanshshekhar11/define#readme",
+  "bugs": "https://github.com/shivanshshekhar11/define/issues",
   "packageManager": "pnpm@10.8.0",
   "engines": {
     "node": ">=20"

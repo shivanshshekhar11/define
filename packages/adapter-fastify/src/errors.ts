@@ -4,6 +4,7 @@ export class ValidationError extends Error {
 
   constructor(message: string, issues: string[]) {
     super(message)
+    Object.setPrototypeOf(this, new.target.prototype)
     this.name = 'ValidationError'
     this.issues = issues
   }

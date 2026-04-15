@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "generate": "node ../../packages/cli/dist/index.js generate --cwd . --title \"Define Example API\" --version 0.1.0",
     "generate:db": "node ../../packages/cli/dist/index.js generate:db --cwd .",
     "generate:repos": "node ../../packages/cli/dist/index.js generate:repos --cwd .",
     "generate:openapi": "node ../../packages/cli/dist/index.js generate:openapi --cwd . --title \"Define Example API\" --version 0.1.0",

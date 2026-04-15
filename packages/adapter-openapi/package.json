@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "description": "OpenAPI 3.1 document emitter for Define resources.",
   "license": "MIT",
+  "author": "Define contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shivanshshekhar11/define.git",
+    "directory": "packages/adapter-openapi"
+  },
+  "homepage": "https://github.com/shivanshshekhar11/define#readme",
+  "bugs": "https://github.com/shivanshshekhar11/define/issues",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +18,6 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.js",
       "default": "./dist/index.js"
     }
   },

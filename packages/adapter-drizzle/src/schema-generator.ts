@@ -5,7 +5,6 @@ import { toSafeIdentifier } from './naming.js'
 
 const EOL = '\n'
 
-const reservedImportSet = new Set<string>(['pgTable'])
 
 const serializeDefaultValue = (value: unknown): string => {
   if (value === undefined) {
@@ -56,9 +55,9 @@ const getColumnBuilder = (field: FieldMeta): ColumnBuilderName => {
   throw new Error(`Unsupported field kind: ${String(exhaustive)}`)
 }
 
-const buildColumnCode = (columnName: string, field: FieldMeta): string => {
+const buildColumnCode = (columnName: string, field: FieldMeta, importSet: Set<string>): string => {
   const builder = getColumnBuilder(field)
-  reservedImportSet.add(builder)
+  importSet.add(builder)
 
   if (field.kind === 'datetime') {
     let datetimeColumn = `timestamp(${JSON.stringify(columnName)}, { mode: 'date' })`
@@ -90,7 +89,7 @@ const buildColumnCode = (columnName: string, field: FieldMeta): string => {
     column += serializeDefaultValue(field.defaultValue)
   }
 
-  if (!field.nullable) {
+  if (!field.nullable && builder !== 'serial') {
     column += '.notNull()'
   }
 
@@ -105,13 +104,13 @@ const buildColumnCode = (columnName: string, field: FieldMeta): string => {
   return column
 }
 
-const buildTableCode = (resource: ResourceMeta): string => {
+const buildTableCode = (resource: ResourceMeta, importSet: Set<string>): string => {
   const tableIdentifier = toSafeIdentifier(resource.table)
   const fieldEntries = Object.entries(resource.fields)
 
   const columns = fieldEntries
     .map(([fieldName, fieldMeta]) => {
-      const columnCode = buildColumnCode(fieldName, fieldMeta)
+      const columnCode = buildColumnCode(fieldName, fieldMeta, importSet)
       return `  ${fieldName}: ${columnCode},`
     })
     .join(EOL)
@@ -127,12 +126,11 @@ const buildTableCode = (resource: ResourceMeta): string => {
 export const generateDrizzleSchema = ({
   resources,
 }: GenerateDrizzleSchemaInput): GenerateDrizzleSchemaResult => {
-  reservedImportSet.clear()
-  reservedImportSet.add('pgTable')
+  const importSet = new Set<string>(['pgTable'])
 
-  const tableBlocks = resources.map((resource) => buildTableCode(resource)).join(EOL)
+  const tableBlocks = resources.map((resource) => buildTableCode(resource, importSet)).join(EOL)
 
-  const imports = Array.from(reservedImportSet).sort().join(', ')
+  const imports = Array.from(importSet).sort().join(', ')
 
   const code = [
     '/* eslint-disable */',

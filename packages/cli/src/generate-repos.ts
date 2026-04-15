@@ -4,6 +4,7 @@ import path from 'node:path'
 import { generateRepositoryArtifacts } from '@define/adapter-drizzle'
 
 import { discoverResourceFiles, loadResourceMetas } from './resource-loader.js'
+import { ensureDirectory } from './utils.js'
 
 export interface GenerateReposOptions {
   cwd: string
@@ -17,10 +18,6 @@ export interface GenerateReposResult {
   resourceCount: number
   outDirPath: string
   writtenFiles: string[]
-}
-
-const ensureDirectory = async (targetDir: string): Promise<void> => {
-  await fs.mkdir(targetDir, { recursive: true })
 }
 
 export const runGenerateRepos = async (

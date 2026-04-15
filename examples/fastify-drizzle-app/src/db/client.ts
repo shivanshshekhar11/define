@@ -1,19 +1,19 @@
 // Placeholder DB client for generated repository imports.
 export const db = {
-  insert: () => ({
-    values: () => ({
+  insert: <T>(_table: T) => ({
+    values: <V>(_input: V) => ({
       returning: async () => [],
     }),
   }),
   select: () => ({
-    from: () =>
+    from: <T>(_table: T) =>
       Object.assign(Promise.resolve([]), {
-        where: async () => [],
+        where: async <W>(_condition: W) => [],
       }),
   }),
-  update: () => ({
-    set: () => ({
-      where: () => ({
+  update: <T>(_table: T) => ({
+    set: <V>(_patch: V) => ({
+      where: <W>(_condition: W) => ({
         returning: async () => [],
       }),
     }),

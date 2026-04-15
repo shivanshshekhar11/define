@@ -128,7 +128,7 @@ export const generateResourceJsonSchemas = <
   }
 
   const primaryField = Object.entries(meta.fields).find(([, field]) => field.primary)?.[0] ?? 'id'
-  const primaryType = meta.fields[primaryField]?.kind === 'string' ? 'string' : 'integer'
+  const primaryIsString = meta.fields[primaryField]?.kind === 'string'
 
   return {
     createBodyJsonSchema: {
@@ -153,7 +153,9 @@ export const generateResourceJsonSchemas = <
       additionalProperties: false,
       required: [primaryField],
       properties: {
-        [primaryField]: { type: primaryType },
+        [primaryField]: primaryIsString
+          ? { type: 'string' }
+          : { type: 'string', pattern: '^[0-9]+$' },
       },
     },
   }

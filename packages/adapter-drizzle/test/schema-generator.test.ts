@@ -85,7 +85,7 @@ describe('generateDrizzleSchema', () => {
 
     expect(code).toContain("import { boolean, integer, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core'")
     expect(code).toContain('export const users = pgTable("users", {')
-    expect(code).toContain('id: serial("id").notNull().primaryKey(),')
+    expect(code).toContain('id: serial("id").primaryKey(),')
     expect(code).toContain('email: text("email").notNull().unique(),')
     expect(code).toContain('age: integer("age"),')
     expect(code).toContain('createdAt: timestamp("createdAt", { mode: \'date\' }).defaultNow().notNull(),')

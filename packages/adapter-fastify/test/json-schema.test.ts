@@ -53,7 +53,7 @@ describe('generateResourceJsonSchemas', () => {
       additionalProperties: false,
       required: ['id'],
       properties: {
-        id: { type: 'integer' },
+        id: { type: 'string', pattern: '^[0-9]+$' },
       },
     })
   })

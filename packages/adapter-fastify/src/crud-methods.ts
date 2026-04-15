@@ -5,7 +5,7 @@ import { generateResourceJsonSchemas, type ResourceJsonSchemas } from './json-sc
 import { createResourceSerializer, type SerializedResourceRow } from './serializer.js'
 import { validateCreate, validateUpdate } from './validation.js'
 
-interface CrudRepository<TRow, TInsert, TUpdate> {
+export interface CrudRepository<TRow, TInsert, TUpdate> {
   insert: (input: TInsert) => Promise<TRow>
   findById: (id: unknown) => Promise<TRow | null>
   findMany: () => Promise<TRow[]>

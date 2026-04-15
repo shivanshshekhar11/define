@@ -1,14 +1,7 @@
 import { getResourceMeta, type ResourceDefinition, type ResourceFields } from '@define/core'
 import type { FastifyInstance } from 'fastify'
 
-import { createCRUDMethods } from './crud-methods.js'
-
-interface CrudRepository<TRow, TInsert, TUpdate> {
-  insert: (input: TInsert) => Promise<TRow>
-  findById: (id: unknown) => Promise<TRow | null>
-  findMany: () => Promise<TRow[]>
-  updateById: (id: unknown, patch: TUpdate) => Promise<TRow | null>
-}
+import { createCRUDMethods, type CrudRepository } from './crud-methods.js'
 
 export interface RegisterCrudRoutesOptions<
   TResource extends ResourceDefinition<string, string, ResourceFields>,
